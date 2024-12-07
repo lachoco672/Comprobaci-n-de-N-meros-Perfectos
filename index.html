@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Números Perfectos</title>
+    <style>
+        /* Estilos básicos para la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 200px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Comprobación de Números Perfectos</h1>
+
+    <!-- Formulario de entrada -->
+    <label for="numeroInput">Introduce un número entero: </label>
+    <input type="number" id="numeroInput" placeholder="Ejemplo: 28" />
+    <button onclick="esNumeroPerfecto()">Comprobar</button>
+
+    <!-- Mostrar el resultado -->
+    <p id="resultado"></p>
+
+    <script>
+        // Función para verificar si un número es perfecto
+        function esNumeroPerfecto() {
+            const numero = parseInt(document.getElementById('numeroInput').value);
+            
+            // Si el número es negativo o cero, no es perfecto
+            if (numero <= 0) {
+                document.getElementById('resultado').innerText = "Los números negativos o cero no son números perfectos.";
+                return;
+            }
+
+            let sumaDivisores = 0;
+
+            // Encontrar divisores propios de 'numero' (sin contar el número mismo)
+            for (let i = 1; i < numero; i++) {
+                if (numero % i === 0) {  // Si 'i' es divisor
+                    sumaDivisores += i;
+                }
+            }
+
+            // Comprobar si la suma de los divisores es igual al número
+            if (sumaDivisores === numero) {
+                document.getElementById('resultado').innerText = `${numero} es un número perfecto.`;
+            } else {
+                document.getElementById('resultado').innerText = `${numero} no es un número perfecto.`;
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
